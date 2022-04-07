@@ -16,7 +16,7 @@ class Booster {
 
   init() {
     this.image = new Image();
-    this.image.src = "/assets/booster.svg";
+    this.image.src = "assets/booster.svg";
   }
 
   draw() {

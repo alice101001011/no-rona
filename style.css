@@ -3,7 +3,7 @@ body {
   font-size: 16px;
   font-family: "Courier New", Courier, monospace;
   font-weight: 500;
-  background-image: url("/assets/splash-bg-1.jpg");
+  background-image: url("assets/splash-bg-1.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

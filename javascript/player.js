@@ -14,7 +14,7 @@ class Player {
 
 init() {
   this.image = new Image();
-  this.image.src = "/assets/player.svg";
+  this.image.src = "assets/player.svg";
 }
 
   draw() {
