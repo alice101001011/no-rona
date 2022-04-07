@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NOrona – Stay negative!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div><img src="" alt="" srcset="" class="'logo" /></div>
+      <h1>NOrona – stay negative!</h1>
+    </header>
+    <main>
+      <div class="splash-screen">
+        <div class="left">
+          <img
+            src="/assets/splash-viruses.svg"
+            alt=""
+            srcset=""
+            class="splash-image"
+          />
+        </div>
+        <div class="right">
+          <div class="info">
+            <p class="intro">
+              Description of game and instructions<br />
+              move left / right / up / down with arrow keys
+            </p>
+            <p class="instructions">
+              Description of game and instructions<br />
+              move left / right / up / down with arrow keys
+            </p>
+          </div>
+          <div id="start-game">
+            <button id="start-button">Start Game</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="game hidden">
+        <div class="row stats">
+          <div>
+            <ul>
+              <li>Level <span id="level">#</span></li>
+              <li>Time left: <span id="time-left">10</span></li>
+              <li>Health: <span id="health"></span></li>
+              <li>Score: <span id="score">0</span></li>
+            </ul>
+          </div>
+          <div>
+            <button id="restart-button">Restart</button>
+          </div>
+          <div>
+            <button id="quit-button">Quit</button>
+          </div>
+          
+        </div>
+        <div class="row">
+          <canvas id="canvas" width="1000" height="600"></canvas>
+        </div>
+      </div>
+
+      <div class="game-over hidden">
+        <div class="left">
+          <img
+            src="/assets/splash-viruses.svg"
+            alt=""
+            srcset=""
+            class="splash-image"
+          />
+        </div>
+        <div class="right">
+          <div class="info">
+            <p class="intro">OOPS, you're positive – you LOST!<br /></p>
+            <p class="instructions">
+              You weren't careful enough! Get better soon and try again if you
+              want to.<br />
+            </p>
+          </div>
+          <div id="start-game">
+            <button id="tryagain-button">Try again</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-won hidden">
+        <div class="left">
+          <img
+            src="/assets/splash-viruses.svg"
+            alt=""
+            srcset=""
+            class="splash-image"
+          />
+        </div>
+        <div class="right">
+          <div class="info">
+            <p class="intro">YAY, you stayed negative – you WON!<br /></p>
+            <p class="instructions">
+              You weren't careful enough! Get better soon and try again if you
+              want to.
+            </p>
+          </div>
+          <div id="start-game">
+            <button id="playagain-button">Play again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- JavaScript files-->
+    <script src="javascript/player.js"></script>
+    <script src="javascript/viruses.js"></script>
+    <script src="javascript/booster.js"></script>
+    <script src="javascript/background.js"></script>
+    <script src="javascript/game.js"></script>
+    <script type="text/javascript" src="javascript/index.js"></script>
+  </body>
+</html>
