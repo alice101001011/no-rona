@@ -82,6 +82,7 @@ function startGame() {
   splashScreen.classList.add("hidden");
   gameScreen.classList.remove("hidden");
   reset();
+  playerControls();
   game(levels[0]);
 }
 
@@ -89,6 +90,7 @@ function tryGameAgain() {
   gameOverScreen.classList.add("hidden");
   gameScreen.classList.remove("hidden");
   reset();
+  playerControls();
   game(levels[0]);
 }
 
@@ -96,7 +98,7 @@ function playGameAgain() {
   gameWonScreen.classList.add("hidden");
   gameScreen.classList.remove("hidden");
   reset();
-
+  playerControls();
   game(levels[0]);
 }
 
@@ -148,7 +150,7 @@ function initializeGame(level) {
   healthPoints.innerHTML = `${player.health}`;
   createViruses(level);
   createBoosters(level);
-  playerControls();
+  
 }
 
 function createViruses(level) {

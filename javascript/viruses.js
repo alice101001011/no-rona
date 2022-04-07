@@ -3,7 +3,8 @@ class Virus {
     this.canvas = canvas;
     this.ctx = ctx;
     this.level = level;
-    this.image = null;
+    this.image = new Image();
+    this.image.src = "assets/virus-small.svg";
     this.width = 50;
     this.height = 50;
     this.x = this.randomXposition();
@@ -15,11 +16,6 @@ class Virus {
   }
 
   randomStartingPoint() {}
-
-  init() {
-    this.image = new Image();
-    this.image.src = "/assets/virus-small.svg";
-  }
 
   draw() {
     if (this.image) {
@@ -38,6 +34,4 @@ class Virus {
     );
     return randomY;
   }
-
-
 }

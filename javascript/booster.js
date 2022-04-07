@@ -2,7 +2,8 @@ class Booster {
   constructor(canvas, ctx, level) {
     this.canvas = canvas;
     this.ctx = ctx;
-    this.image = null;
+    this.image = new Image();
+    this.image.src = "assets/booster.svg";
     this.width = 40;
     this.height = 40;
     this.level = level;
@@ -12,13 +13,6 @@ class Booster {
     this.init();
   }
 
-  //randomStartingPoint() {}
-
-  init() {
-    this.image = new Image();
-    this.image.src = "assets/booster.svg";
-  }
-
   draw() {
     if (this.image) {
       this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
@@ -26,12 +20,14 @@ class Booster {
   }
 
   randomXposition() {
-    let randomX = Math.floor(Math.random() * (this.canvas.width - this.width)) ;
+    let randomX = Math.floor(Math.random() * (this.canvas.width - this.width));
     return randomX;
   }
 
   randomYposition() {
-    let randomY = Math.floor(Math.random() * (this.canvas.height - this.height)) ;
+    let randomY = Math.floor(
+      Math.random() * (this.canvas.height - this.height)
+    );
     return randomY;
   }
 }
