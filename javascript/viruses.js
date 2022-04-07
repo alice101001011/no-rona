@@ -12,7 +12,6 @@ class Virus {
     this.xSpeed = level.virusXspeed;
     this.ySpeed = -this.xSpeed;
     this.damage = 1;
-    this.init();
   }
 
   randomStartingPoint() {}

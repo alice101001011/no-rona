@@ -10,7 +10,6 @@ class Booster {
     this.x = this.randomXposition();
     this.y = this.randomYposition();
     this.healthPlus = 1;
-    this.init();
   }
 
   draw() {
