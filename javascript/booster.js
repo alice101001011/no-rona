@@ -3,7 +3,7 @@ class Booster {
     this.canvas = canvas;
     this.ctx = ctx;
     this.image = new Image();
-    this.image.src = "assets/booster.svg";
+    this.image.src = "assets/booster.png";
     this.width = 40;
     this.height = 40;
     this.level = level;

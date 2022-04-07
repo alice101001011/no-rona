@@ -4,7 +4,7 @@ class Virus {
     this.ctx = ctx;
     this.level = level;
     this.image = new Image();
-    this.image.src = "assets/virus-small.svg";
+    this.image.src = "assets/virus-small.png";
     this.width = 50;
     this.height = 50;
     this.x = this.randomXposition();
