@@ -13,9 +13,7 @@ const healthPoints = document.querySelector("#health");
 const scorePoints = document.querySelector("#score");
 
 document.getElementById("start-button").addEventListener("click", startGame);
-document
-  .getElementById("tryagain-button")
-  .addEventListener("click", startGame);
+document.getElementById("tryagain-button").addEventListener("click", startGame);
 document
   .getElementById("playagain-button")
   .addEventListener("click", startGame);
@@ -83,23 +81,38 @@ function playerControls() {
   });
 }
 
+playerControls();
+
 function startGame() {
   splashScreen.classList.add("hidden");
   gameWonScreen.classList.add("hidden");
   gameOverScreen.classList.add("hidden");
   gameScreen.classList.remove("hidden");
   reset();
-  let textString = "Press PLAY to start game!";
-  ctx.fillStyle = "black";
-    ctx.font = "30px Courier New";
-    ctx.textAlign = "center";
-    ctx.fillText(textString, canvas.width/2 , 100);
+  instructionsCanvas();
 }
 
+function instructionsCanvas() {
+  let instruction1 = "Press PLAY to start game!";
+  let instruction2 = "Move with the arrow keys.";
+  let instruction3 = "Dodge the viruses, otherwise you lose health points.";
+  let instruction4 = "Collect the booster shots to win health points.";
+  let instruction5 =
+    "To win, reach the green door on the right before time runs out.";
+  ctx.fillStyle = "black";
+  ctx.font = "24px Courier New";
+  ctx.textAlign = "center";
+  ctx.fillText(instruction1, canvas.width / 2, 100);
+  ctx.font = "20px Courier New";
+  ctx.fillText(instruction2, canvas.width / 2, 140);
+  ctx.fillText(instruction3, canvas.width / 2, 170);
+  ctx.fillText(instruction4, canvas.width / 2, 200);
+  ctx.fillText(instruction5, canvas.width / 2, 230);
+}
 
 function playGame() {
   reset();
-  playerControls();
+
   clear();
   clearInterval(levelTimeLeftId);
   levelTimeLeftId = setInterval(levelTimer, 1000);
@@ -107,31 +120,12 @@ function playGame() {
   game(levels[0]);
 }
 
-// function tryGameAgain() {
-//   gameOverScreen.classList.add("hidden");
-//   gameScreen.classList.remove("hidden");
-//   reset();
-//   playerControls();
-//   game(levels[0]);
-// }
-
-// function playGameAgain() {
-//   gameWonScreen.classList.add("hidden");
-//   gameScreen.classList.remove("hidden");
-//   reset();
-//   playerControls();
-//   levelTimeLeftId = setInterval(levelTimer, 1000);
-//   levelTimer();
-//   game(levels[0]);
-// }
-
 function quitGame() {
   reset();
   clear();
   clearInterval(levelTimeLeftId);
+  instructionsCanvas();
 }
-
-
 
 function levelTimer() {
   levelTimeLeft--;
@@ -164,10 +158,9 @@ function game(level) {
     intervalId = requestAnimationFrame(update);
   }
 
-
   function initializeGame(level) {
     background = new Background(canvas, ctx, level);
-    goal = new Goal(canvas, ctx)
+    goal = new Goal(canvas, ctx);
     player = new Player(canvas, ctx);
     healthPoints.innerHTML = `${player.health}`;
     createViruses(level);
@@ -259,27 +252,34 @@ function game(level) {
     });
   }
 
-//   function levelEnd() {
-//     if (collisionDetection(player, goal) && player.health > 0) {
-//       //virus.sneeze();
-// gameWon();
-//     }
-//   }
+  //   function levelEnd() {
+  //     if (collisionDetection(player, goal) && player.health > 0) {
+  //       //virus.sneeze();
+  // gameWon();
+  //     }
+  //   }
 
   function checkWin() {
-    // if (levelTimeLeft === 0 && player.health > 0) {
-    //   gameWon();
-    // } else 
-    if (collisionDetection(player, goal) && player.health > 0 && levelTimeLeft >= 0) {
-      //virus.sneeze();
-gameWon();
+    if (
+      collisionDetection(player, goal) &&
+      player.health > 0 &&
+      levelTimeLeft >= 0
+    ) {
+      player.win();
+      gameWon();
     }
-    if ((levelTimeLeft >= 0 && !collisionDetection(player, goal) && player.health === 0) || (levelTimeLeft === 0 && !collisionDetection(player, goal) && player.health > 0)) {
+    if (
+      (levelTimeLeft >= 0 &&
+        !collisionDetection(player, goal) &&
+        player.health === 0) ||
+      (levelTimeLeft === 0 &&
+        !collisionDetection(player, goal) &&
+        player.health > 0)
+    ) {
+      player.lose();
       gameOver();
     }
   }
-
-  
 }
 
 function clear() {
@@ -299,7 +299,7 @@ function reset() {
 function gameOver() {
   gameScreen.classList.add("hidden");
   gameOverScreen.classList.remove("hidden");
-  clearInterval(levelTimeLeftId)
+  clearInterval(levelTimeLeftId);
   reset();
   clear();
 }
@@ -308,7 +308,7 @@ function gameOver() {
 function gameWon() {
   gameScreen.classList.add("hidden");
   gameWonScreen.classList.remove("hidden");
-  clearInterval(levelTimeLeftId)
+  clearInterval(levelTimeLeftId);
   reset();
   clear();
 }

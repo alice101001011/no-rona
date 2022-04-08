@@ -58,6 +58,17 @@ init() {
     this.ctx.fillText("+1 health", this.x, this.y - 10);
   }
 
+  win() {
+    this.audio = new Audio();
+    this.audio.src = "assets/win.wav";
+    this.audio.play();
+  }
 
+  lose() {
+      this.audio = new Audio();
+      this.audio.src = "assets/lose.wav";
+      this.audio.play();
+    }
+  }
   
-}
+

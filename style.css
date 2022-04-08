@@ -2,7 +2,7 @@ body {
   padding: 0;
   font-size: 16px;
   font-family: "Courier New", Courier, monospace;
-  font-weight: 500;
+  font-weight: 600;
   background-image: url("assets/splash-bg-1.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -81,6 +81,10 @@ mark {
   font-size: 1.6rem;
   background-color: #32e49f;
   box-shadow: 2px 2px black;
+}
+
+.green {
+  background-color: #94f7d1;
 }
 
 /* GAME SCREEN */
