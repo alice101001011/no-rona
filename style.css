@@ -4,16 +4,14 @@ body {
   font-family: "Courier New", Courier, monospace;
   font-weight: 500;
   background-image: url("assets/splash-bg-1.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
   overflow-x: hidden;
-overflow-y: hidden;
-  
+  overflow-y: hidden;
 }
-
 
 header {
   text-align: center;
@@ -31,7 +29,9 @@ h1 {
 }
 
 /* SPLASH SCREEN */
-.splash-screen, .game-over, .game-won {
+.splash-screen,
+.game-over,
+.game-won {
   width: 1000px;
   display: flex;
   flex-direction: row;
@@ -73,7 +73,9 @@ mark {
   width: 50%;
 }
 
-#start-button, #tryagain-button, #playagain-button {
+#start-button,
+#tryagain-button,
+#playagain-button {
   width: auto;
   height: 4rem;
   padding: 1.8% 2% 2% 2%;
@@ -90,17 +92,16 @@ mark {
 
 /* GAME SCREEN */
 .game {
-   
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .row {
-    width: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #start-game {
@@ -108,16 +109,16 @@ mark {
 }
 
 ul {
-  text-align: left;  
+  text-align: left;
   padding-inline-start: 0px;
   padding-right: 60px;
 }
 
 ul > li {
-    display: inline-block;
-    padding: 10px 20px;
-    text-decoration: none;
-    background-color: #ffc6c6;
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: #ffc6c6;
 }
 
 li > span {
@@ -125,32 +126,30 @@ li > span {
 }
 
 #quit-button {
-    width: auto;
-    padding: 10px 20px;
-    font-family: "Courier New", Courier, monospace;
-    font-weight: 600;
-    font-size: 1rem;
-    background-color: #988df8;
-    box-shadow: 2px 2px black;
-  }
+  width: auto;
+  padding: 10px 20px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: #988df8;
+  box-shadow: 2px 2px black;
+}
 
-  #play-button {
-    width: auto;
-    padding: 10px 20px;
-   margin-right: 20px;
-    font-family: "Courier New", Courier, monospace;
-    font-weight: 600;
-    font-size: 1rem;
-    background-color: #d698ff;
-    box-shadow: 2px 2px black;
-  }
+#play-button {
+  width: auto;
+  padding: 10px 20px;
+  margin-right: 20px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: #d698ff;
+  box-shadow: 2px 2px black;
+}
 
- #canvas {
-    border: solid black 1px;
-    background-color: rgba(255, 255, 255, 0.726);
-} 
-
-
+#canvas {
+  border: solid black 1px;
+  background-color: rgba(255, 255, 255, 0.726);
+}
 
 /* other */
 

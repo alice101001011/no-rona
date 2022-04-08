@@ -251,7 +251,6 @@ function game(level) {
     });
   }
 
-
   function checkWin() {
     if (
       collisionDetection(player, goal) &&
