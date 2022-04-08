@@ -2,7 +2,7 @@ body {
   padding: 0;
   font-size: 16px;
   font-family: "Courier New", Courier, monospace;
-  font-weight: 600;
+  font-weight: 500;
   background-image: url("assets/splash-bg-1.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -73,13 +73,14 @@ mark {
   width: 50%;
 }
 
-#start-button {
+#start-button, #tryagain-button, #playagain-button {
   width: auto;
   height: 4rem;
   padding: 1.8% 2% 2% 2%;
   font-family: "Courier New", Courier, monospace;
+  font-weight: 500;
   font-size: 1.6rem;
-  background-color: #32e49f;
+  background-color: #d698ff;
   box-shadow: 2px 2px black;
 }
 
@@ -126,10 +127,10 @@ li > span {
 #quit-button {
     width: auto;
     padding: 10px 20px;
-   
     font-family: "Courier New", Courier, monospace;
+    font-weight: 600;
     font-size: 1rem;
-    background-color: #ff6a6a;
+    background-color: #988df8;
     box-shadow: 2px 2px black;
   }
 
@@ -138,8 +139,9 @@ li > span {
     padding: 10px 20px;
    margin-right: 20px;
     font-family: "Courier New", Courier, monospace;
+    font-weight: 600;
     font-size: 1rem;
-    background-color: #32e49f;
+    background-color: #d698ff;
     box-shadow: 2px 2px black;
   }
 
@@ -149,30 +151,7 @@ li > span {
 } 
 
 
-/* GAME OVER SCREEN */
-#tryagain-button {
-  width: auto;
-  height: 4rem;
-  padding: 1.8% 2% 2% 2%;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 1.6rem;
-  background-color: #32e49f;
-  box-shadow: 2px 2px black;
-}
 
-
-
-/* GAME WON SCREEN*/
-
-#playagain-button {
-  width: auto;
-  height: 4rem;
-  padding: 1.8% 2% 2% 2%;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 1.6rem;
-  background-color: #32e49f;
-  box-shadow: 2px 2px black;
-}
 /* other */
 
 .hidden {

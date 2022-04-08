@@ -25,7 +25,7 @@ let background,
   virusesArr = [],
   boostersArr = [],
   score = 0,
-  levelTimeLeft = 20,
+  levelTimeLeft = 30,
   levelTimeLeftId,
   intervalId,
   timer,
@@ -112,7 +112,6 @@ function instructionsCanvas() {
 
 function playGame() {
   reset();
-
   clear();
   clearInterval(levelTimeLeftId);
   levelTimeLeftId = setInterval(levelTimer, 1000);
@@ -252,12 +251,6 @@ function game(level) {
     });
   }
 
-  //   function levelEnd() {
-  //     if (collisionDetection(player, goal) && player.health > 0) {
-  //       //virus.sneeze();
-  // gameWon();
-  //     }
-  //   }
 
   function checkWin() {
     if (
@@ -293,7 +286,7 @@ function reset() {
   virusesArr = [];
   boostersArr = [];
   score = 0;
-  levelTimeLeft = 20;
+  levelTimeLeft = 30;
 }
 // Game Over
 function gameOver() {
