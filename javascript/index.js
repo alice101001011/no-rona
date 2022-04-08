@@ -1,5 +1,7 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+canvas.width = 1000;
+canvas.height = 600;
 
 const splashScreen = document.querySelector(".splash-screen");
 const gameScreen = document.querySelector(".game");
@@ -25,7 +27,7 @@ let background,
   virusesArr = [],
   boostersArr = [],
   score = 0,
-  levelTimeLeft = 20,
+  levelTimeLeft = 100,
   levelTimeLeftId,
   intervalId,
   timer,
@@ -87,17 +89,19 @@ function startGame() {
   gameOverScreen.classList.add("hidden");
   gameScreen.classList.remove("hidden");
   reset();
-  //playerControls();
-  // levelTimer();
-  // game(levels[0]);
+  let textString = "Press PLAY to start game!";
+  ctx.fillStyle = "black";
+    ctx.font = "30px Courier New";
+    ctx.textAlign = "center";
+    ctx.fillText(textString, canvas.width/2 , 100);
 }
 
 
 function playGame() {
-  // splashScreen.classList.add("hidden");
-  // gameScreen.classList.remove("hidden");
   reset();
   playerControls();
+  clear();
+  clearInterval(levelTimeLeftId);
   levelTimeLeftId = setInterval(levelTimer, 1000);
   levelTimer();
   game(levels[0]);
@@ -122,9 +126,9 @@ function playGame() {
 // }
 
 function quitGame() {
-  //splashScreen.classList.add("hidden");
-  //gameScreen.classList.remove("hidden");
   reset();
+  clear();
+  clearInterval(levelTimeLeftId);
 }
 
 
@@ -158,6 +162,7 @@ function game(level) {
 
     intervalId = requestAnimationFrame(update);
   }
+
 
   function initializeGame(level) {
     background = new Background(canvas, ctx, level);
@@ -230,6 +235,7 @@ function game(level) {
   function collectingBooster() {
     boostersArr.forEach((booster, index) => {
       if (collisionDetection(player, booster)) {
+        booster.boosterShot();
         boostersArr.splice(index, 1);
         player.health += booster.healthPlus;
         healthPoints.innerHTML = player.health;
@@ -241,6 +247,7 @@ function game(level) {
   function losingHealthPoints(level) {
     virusesArr.forEach((virus, index) => {
       if (collisionDetection(player, virus)) {
+        virus.sneeze();
         virusesArr.splice(index, 1);
         player.health -= virus.damage;
         healthPoints.innerHTML = player.health;
@@ -257,9 +264,11 @@ function game(level) {
     }
   }
 
-  function clear() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }
+  
+}
+
+function clear() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 function reset() {

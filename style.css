@@ -21,8 +21,12 @@ header {
 }
 
 h1 {
+  display: inline-flex;
+  text-align: center;
   font-size: 4em;
   color: white;
+  background-color: black;
+  padding: 0 5px 0 15px;
 }
 
 /* SPLASH SCREEN */
@@ -43,7 +47,14 @@ h1 {
 }
 
 .instructions {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3em;
   font-size: 1.4em;
+}
+
+.arrows {
+  padding-right: 40px;
 }
 
 .splash-image {
@@ -83,7 +94,9 @@ h1 {
     align-items: center;
 }
 
-
+#start-game {
+  margin-top: 40px;
+}
 
 ul {
   text-align: left;  
@@ -118,7 +131,7 @@ li > span {
    margin-right: 20px;
     font-family: "Courier New", Courier, monospace;
     font-size: 1rem;
-    background-color: #ff6a6a;
+    background-color: #32e49f;
     box-shadow: 2px 2px black;
   }
 

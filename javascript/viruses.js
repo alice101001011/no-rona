@@ -12,6 +12,7 @@ class Virus {
     this.xSpeed = level.virusXspeed;
     this.ySpeed = -this.xSpeed;
     this.damage = 1;
+    
   }
 
   randomStartingPoint() {}
@@ -32,5 +33,11 @@ class Virus {
       Math.random() * (this.canvas.height - this.height)
     );
     return randomY;
+  }
+
+  sneeze() {
+    this.audio = new Audio();
+    this.audio.src = "assets/sneeze.wav";
+    this.audio.play();
   }
 }

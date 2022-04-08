@@ -29,4 +29,11 @@ class Booster {
     );
     return randomY;
   }
+
+  boosterShot() {
+    this.audio = new Audio();
+    this.audio.src = "assets/boostershot.wav";
+    this.audio.play();
+  }
+
 }
