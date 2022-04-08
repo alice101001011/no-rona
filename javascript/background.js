@@ -18,4 +18,7 @@ class Background {
 				this.canvas.height
 			);
 		}
+
+
+	
 	}

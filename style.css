@@ -18,6 +18,7 @@ overflow-y: hidden;
 header {
   text-align: center;
   padding: 20px;
+  /*margin-bottom: -100px;*/
 }
 
 h1 {
@@ -46,6 +47,9 @@ h1 {
   font-weight: 800;
 }
 
+mark {
+  background-color: #fda3a3;
+}
 .instructions {
   display: flex;
   flex-direction: row;
@@ -75,7 +79,7 @@ h1 {
   padding: 1.8% 2% 2% 2%;
   font-family: "Courier New", Courier, monospace;
   font-size: 1.6rem;
-  background-color: #ff6a6a;
+  background-color: #32e49f;
   box-shadow: 2px 2px black;
 }
 
@@ -148,7 +152,7 @@ li > span {
   padding: 1.8% 2% 2% 2%;
   font-family: "Courier New", Courier, monospace;
   font-size: 1.6rem;
-  background-color: #ff6a6a;
+  background-color: #32e49f;
   box-shadow: 2px 2px black;
 }
 
@@ -162,7 +166,7 @@ li > span {
   padding: 1.8% 2% 2% 2%;
   font-family: "Courier New", Courier, monospace;
   font-size: 1.6rem;
-  background-color: #ff6a6a;
+  background-color: #32e49f;
   box-shadow: 2px 2px black;
 }
 /* other */
