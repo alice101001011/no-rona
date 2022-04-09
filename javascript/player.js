@@ -14,7 +14,16 @@ class Player {
 
 init() {
   this.image = new Image();
-  this.image.src = "assets/player.png";
+  this.image.src = "assets/player-right.png";
+  this.imageRight = new Image();
+  this.imageRight.src = "assets/player-right.png";
+  this.imageUp = new Image();
+  this.imageUp.src = "assets/player-up.png";
+  this.imageLeft = new Image();
+  this.imageLeft.src = "assets/player-left.png";
+  this.imageDown = new Image();
+  this.imageDown.src = "assets/player-down.png";
+
 }
 
   draw() {

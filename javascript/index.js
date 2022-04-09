@@ -29,50 +29,53 @@ let background,
   levelTimeLeftId,
   intervalId,
   timer,
+  levelDone = 1,
+  gameDone = false
   levels = [
     {
       level: 1,
       virusesNumber: 4,
       virusXspeed: 2,
-      //virusYspeed: -2,
-      boostersNumber: 3,
+      boostersNumber: 1,
       bgImg: "assets/bg-level-1.png",
     },
     {
       level: 2,
       virusesNumber: 5,
-      virusXspeed: 3,
-      //virusYspeed: -4,
-      boostersNumber: 2,
+      virusXspeed: 1,
+      boostersNumber: 3,
       bgImg: "assets/bg-level-2.png",
     },
     {
       level: 3,
       virusesNumber: 6,
-      virusXspeed: 3,
-      //virusYspeed: -5,
-      boostersNumber: 1,
+      virusXspeed: 0.5,
+      boostersNumber: 5,
       bgImg: "assets/bg-level-3.png",
     },
   ];
 
 timeLeft.innerHTML = levelTimeLeft;
-levelNumber.innerHTML = 1; //levels[0].level;
+levelNumber.innerHTML = levelDone;
 scorePoints.innerHTML = score;
 
 function playerControls() {
   document.addEventListener("keydown", (e) => {
     switch (e.key) {
       case "ArrowRight":
+        player.image = player.imageRight;
         player.moveRight();
         break;
       case "ArrowLeft":
+        player.image = player.imageLeft;
         player.moveLeft();
         break;
       case "ArrowUp":
+        player.image = player.imageUp;
         player.moveUp();
         break;
       case "ArrowDown":
+        player.image = player.imageDown;
         player.moveDown();
         break;
       default:
@@ -117,6 +120,7 @@ function playGame() {
   levelTimeLeftId = setInterval(levelTimer, 1000);
   levelTimer();
   game(levels[0]);
+  
 }
 
 function quitGame() {
@@ -138,23 +142,26 @@ function levelTimer() {
   }
 }
 
-function game(level) {
-  initializeGame(levels[0]);
+  
+  function game(level) {
+    initializeGame(level);
 
-  update();
+    update();
+    
+    function update() {
+      clear();
+      draw();
 
-  function update() {
-    clear();
-    draw();
+      animateViruses();
 
-    animateViruses();
+      collectingBooster();
+      losingHealthPoints(level);
+      checkWin();
+      checkLose();
+      checkLevelDone();
 
-    collectingBooster();
-    losingHealthPoints(level);
-    //levelEnd();
-    checkWin();
-
-    intervalId = requestAnimationFrame(update);
+      intervalId = requestAnimationFrame(update);
+    }
   }
 
   function initializeGame(level) {
@@ -255,11 +262,15 @@ function game(level) {
     if (
       collisionDetection(player, goal) &&
       player.health > 0 &&
-      levelTimeLeft >= 0
+      levelTimeLeft >= 0 &&
+      levelDone === 3
     ) {
       player.win();
       gameWon();
     }
+  }
+
+  function checkLose() {
     if (
       (levelTimeLeft >= 0 &&
         !collisionDetection(player, goal) &&
@@ -272,7 +283,58 @@ function game(level) {
       gameOver();
     }
   }
-}
+
+  function checkLevelDone() {
+    if (
+      collisionDetection(player, goal) &&
+      player.health > 0 &&
+      levelTimeLeft >= 0 &&
+      levelDone < 3
+    ) {
+      player.win();
+          levelDone += 1;
+          clear();
+          levelTimeLeft = 30;
+          virusesArr = [];
+          boostersArr = [];
+    
+          switch (levelDone) {
+            case 1:
+              game(levels[1]);
+              levelNumber.innerHTML = 2;
+
+              
+
+              break;
+            case 2:
+              game(levels[2]);
+              levelNumber.innerHTML = 3;
+
+              break;
+          }
+        }
+  }
+
+// function playLevels() {
+//   if (checkLevelDone()) {
+//   player.win();
+//       levelDone += 1;
+//       clear();
+//       levelTimeLeft = 30;
+//       virusesArr = [];
+//       boostersArr = [];
+
+//       switch (levelDone) {
+//         case 1:
+//           game(levels[1]);
+//           break;
+//         case 2:
+//           game(levels[2]);
+//           break;
+//       }
+//     }
+// }
+
 
 function clear() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -286,6 +348,7 @@ function reset() {
   boostersArr = [];
   score = 0;
   levelTimeLeft = 30;
+  levelDone = 0;
 }
 // Game Over
 function gameOver() {
