@@ -16,25 +16,25 @@ It's okay – the concentration of the virus is pretty low here, you manage to d
 
 ## MVP (DOM - Canvas)
 
-- **the player**:
+**the player**:
 
 – can move freely around the canvas, in every direction, with arrow up/ down/ left/ right keys
 – has 5 health points at start of each level
 – can collect boosters, which add 1 to his health points
 
-- **the viruses**:
+**the viruses**:
 
 – X number of viruses appear as soon as game is started
 - number and speed increases per level to make it more difficult
 - viruses bounce around the canvas randomly /bounce off the edges of canvas
 - collision with virus causes damage to player (reduce health points; small virus by 1)
 
-- **the boosters**:
+**the boosters**:
 
 - boosters appear randomly scattered at start of game: 1 in 1st level, 3 in 2nd level, 5 in 3rd level
 – when collected by player (equals collision with booster), add 1 to health
 
-- **lose/win logic**:
+**lose/win logic**:
 
 – levels are 30 seconds, player has to reach exit (or goal) to not lose and continue with next level
 – win: if player survives until end of 3rd level (= has  more than 0 health and reached green exit in level 3)
