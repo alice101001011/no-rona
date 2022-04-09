@@ -141,4 +141,4 @@ Definition of the different states and their transition (transition functions)
 
 ### Slides
 
-[Link Slides.com](http://slides.com)
+[Google slides](https://docs.google.com/presentation/d/117HzRMArVTbrYovaEs5bpAiE3mOgDM9IudczQnCjuGQ/edit?usp=sharing)
