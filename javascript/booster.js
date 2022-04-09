@@ -35,5 +35,4 @@ class Booster {
     this.audio.src = "assets/boostershot.wav";
     this.audio.play();
   }
-
 }
